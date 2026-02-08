@@ -52,11 +52,8 @@ Middle-East-Tension-Index/
 
 ## 🤝 Contributing & Feedback
 This is a public project. Have ideas for improvement? Found a bug? Want to add new data sources?
-- 📝 **Open an Issue** for bugs or feature requests
-- 💡 **Start a Discussion** for ideas and suggestions
+- **Open an Issue** for bugs or feature requests
+- **Start a Discussion** for ideas and suggestions
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🌍 Why This Matters
-In an increasingly interconnected world, geopolitical events in the Middle-East affect everyone. This project democratizes access to early warning signals, helping people make more informed decisions during times of uncertainty.
