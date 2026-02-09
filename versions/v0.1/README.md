@@ -11,8 +11,8 @@ This initial version was created to validate the project's foundational idea. It
 *   **Simple Visualization:** Displays the normalized index (0-100) on a Plotly gauge/speedometer.
 *   **Auto-Refresh:** Updates data every 3 minutes to provide a near-live view.
 
-## 🎨 UI/UX - The MVP Dashboard
-![v0.1 Dashboard Screenshot](../../screenshots/v0.1_dashboard_1.png)
+## UI - The MVP Dashboard
+![v0.1 Dashboard Screenshot](../../screenshots/v0.1_screenshot_1.png)
 
 The interface is purposefully minimal, focusing solely on functionality:
 1.  **Central Gauge:** The primary visual output. Shows the computed Middle-East Tension Index.
@@ -36,7 +36,7 @@ This version served as a critical proof-of-concept. It successfully demonstrated
 
 ---
 
-### How to Run This Version
+### How to Run This Version Locally
 ```bash
 # Navigate to this directory
 cd versions/v0.1
