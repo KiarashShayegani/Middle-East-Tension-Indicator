@@ -12,7 +12,7 @@ This initial version was created to validate the project's foundational idea. It
 *   **Auto-Refresh:** Updates data every 3 minutes to provide a near-live view.
 
 ## 🎨 UI/UX - The MVP Dashboard
-![v0.1 Dashboard Screenshot](/screenshots/v0.1_dashboard.png)
+![v0.1 Dashboard Screenshot](../../screenshots/v0.1_dashboard_1.png)
 
 The interface is purposefully minimal, focusing solely on functionality:
 1.  **Central Gauge:** The primary visual output. Shows the computed Middle-East Tension Index.
