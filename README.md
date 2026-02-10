@@ -2,9 +2,9 @@
 
 **A self-driven, real-time dashboard tracking geopolitical tension signals in the Middle-East. Born from personal experience during the June 2025 Iran-Israel conflict.**
 
-[![GitHub Release](https://img.shields.io/github/v/release/yourusername/Middle-East-Tension-Index)](https://github.com/yourusername/Middle-East-Tension-Index/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/KiarashShayegani/Middle-East-Tension-Indicator)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Project Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen)](https://github.com/yourusername/Middle-East-Tension-Index)
+[![Project Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator)
 
 ## 📖 Background Story
 > *"On June 13th, 2025, at 3:20 AM in Tehran, I was awake, recording a video for a university project. The first distant booms seemed like thunder—a common thought before reality shattered the quiet. Within moments, it was undeniable: the sound was not the sky, but the start of a war. I was in complete shock, with no warning.
