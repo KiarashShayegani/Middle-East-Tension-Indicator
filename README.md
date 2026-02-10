@@ -2,7 +2,7 @@
 
 **A self-driven, real-time dashboard tracking geopolitical tension signals in the Middle-East. Born from personal experience during the June 2025 Iran-Israel conflict.**
 
-[![GitHub Release](https://img.shields.io/github/v/release/KiarashShayegani/Middle-East-Tension-Indicator)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/KiarashShayegani/Middle-East-Tension-Indicator)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator/releases/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Project Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator)
 
