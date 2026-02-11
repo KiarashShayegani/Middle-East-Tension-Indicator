@@ -1,4 +1,4 @@
-# 🎛️ Middle-East Tension Index
+# 🎛️ Middle-East Tension Indicator
 
 **A self-driven, real-time dashboard tracking geopolitical tension signals in the Middle-East. Born from personal experience during the June 2025 Iran-Israel conflict.**
 
@@ -16,6 +16,12 @@ This project was built to decode that signal. It aims to give everyone—not jus
 - **Early warning system** using market reactions as leading indicators
 - **Citizen-driven project** – built by someone who experienced the tension firsthand
 - **Educational tool** for understanding geopolitical risk signals
+
+> **System Architecture Overview**
+> 
+![Project Preview Diagram](assets/diagram.png)
+
+---
 
 ## 📈 How It Works
 The index analyzes four financial assets that react to Middle-East tensions:
