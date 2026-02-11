@@ -3,7 +3,7 @@
 **A self-driven, real-time dashboard tracking geopolitical tension signals in the Middle-East. Born from personal experience during the June 2025 Iran-Israel conflict.**
 
 [![GitHub Release](https://img.shields.io/github/v/release/KiarashShayegani/Middle-East-Tension-Indicator)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator/releases/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Project Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator)
 
 ## 📖 Background Story
@@ -29,8 +29,9 @@ The index analyzes four financial assets that react to Middle-East tensions:
 
 **Formula:** `Index = Σ(Asset_Weight × Price_Change)` → Normalized to 0-100 scale
 
-## 🖼️ Dashboard Preview
-![v0.2 Dashboard Screenshot](assets/v0.2_screenshot.png)
+## 🖼️ Dashboard UI Preview (v0.2)
+![v0.2 Dashboard Screenshot](assets/screenshots/v0.2_screenshot_1.png)
+![v0.2 Dashboard Screenshot](assets/screenshots/v0.2_screenshot_2.png)
 
 ## 🗺️ Version Journey
 | Version | Status | Focus | Key Features |
