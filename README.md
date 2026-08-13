@@ -64,11 +64,17 @@ Then open http://localhost:7860
 ## Deploy on Hugging Face Spaces (free)
 
 1. Create a new Space → choose **Gradio** SDK
-2. Upload (or git push) the contents of this repository
-3. Make sure `app.py` and `requirements.txt` are at the root
-4. The Space will build and run automatically
+2. Upload (or git push) the project so that `app.py` and `requirements.txt` are at the **root** of the Space
+3. Hardware:
+   - Prefer **CPU** if the free tier still offers it
+   - If the Space is forced onto **ZeroGPU**, the app already includes a harmless `@spaces.GPU` stub so startup succeeds
+4. The Space builds and runs automatically
 
 The same code works locally and on Spaces.
+
+### ZeroGPU note
+If you see `No @spaces.GPU function detected during startup`, the Space is on ZeroGPU hardware.  
+Current `app.py` already handles this. Just re-upload / restart the Space after pulling the latest files.
 
 ---
 

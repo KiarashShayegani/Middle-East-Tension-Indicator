@@ -23,19 +23,14 @@ def create_tension_gauge(score: int, settings: Settings | None = None) -> go.Fig
 
     fig = go.Figure(
         go.Indicator(
-            mode="gauge+number+delta",
+            mode="gauge+number",
             value=score,
             title={
                 "text": "Tension Index",
-                "font": {"size": 22, "color": "#e2e8f0", "family": "Inter, Arial"},
-            },
-            delta={
-                "reference": 50,
-                "increasing": {"color": "#ef4444"},
-                "decreasing": {"color": "#10b981"},
+                "font": {"size": 20, "color": "#e2e8f0", "family": "Inter, Arial"},
             },
             number={
-                "font": {"size": 48, "color": "#f8fafc", "family": "Inter, Arial Black"},
+                "font": {"size": 52, "color": "#f8fafc", "family": "Inter, Arial Black"},
                 "suffix": "",
             },
             gauge={
@@ -43,16 +38,16 @@ def create_tension_gauge(score: int, settings: Settings | None = None) -> go.Fig
                     "range": [0, 100],
                     "tickwidth": 1,
                     "tickcolor": "#94a3b8",
-                    "tickfont": {"color": "#94a3b8", "size": 12},
+                    "tickfont": {"color": "#94a3b8", "size": 11},
                 },
-                "bar": {"color": "#3b82f6", "thickness": 0.28},
-                "bgcolor": "rgba(15, 23, 42, 0.4)",
+                "bar": {"color": "#3b82f6", "thickness": 0.30},
+                "bgcolor": "rgba(15, 23, 42, 0.45)",
                 "borderwidth": 2,
-                "bordercolor": "rgba(148, 163, 184, 0.3)",
+                "bordercolor": "rgba(148, 163, 184, 0.25)",
                 "steps": steps,
                 "threshold": {
                     "line": {"color": "#f8fafc", "width": 3},
-                    "thickness": 0.8,
+                    "thickness": 0.85,
                     "value": score,
                 },
             },
@@ -63,8 +58,8 @@ def create_tension_gauge(score: int, settings: Settings | None = None) -> go.Fig
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         font={"color": "#e2e8f0"},
-        height=340,
-        margin=dict(t=60, b=30, l=30, r=30),
+        height=320,
+        margin=dict(t=50, b=20, l=25, r=25),
     )
     return fig
 
@@ -170,15 +165,16 @@ def create_contribution_bar(contributions: dict[str, Any]) -> go.Figure:
 
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(15, 23, 42, 0.3)",
-        font={"color": "#e2e8f0"},
-        height=280,
-        margin=dict(t=20, b=30, l=120, r=40),
+        plot_bgcolor="rgba(15, 23, 42, 0.25)",
+        font={"color": "#e2e8f0", "size": 12},
+        height=260,
+        margin=dict(t=16, b=36, l=130, r=50),
         xaxis={
             "title": "Contribution to Raw Index",
-            "gridcolor": "rgba(148, 163, 184, 0.15)",
+            "gridcolor": "rgba(148, 163, 184, 0.12)",
             "zeroline": True,
-            "zerolinecolor": "rgba(148, 163, 184, 0.4)",
+            "zerolinecolor": "rgba(148, 163, 184, 0.35)",
+            "zerolinewidth": 1,
         },
         yaxis={"title": None},
         showlegend=False,
