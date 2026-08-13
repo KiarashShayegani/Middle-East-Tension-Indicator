@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meti"
+version = "1.0.0"
+description = "Middle-East Tension Indicator – market-based geopolitical stress gauge"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Kiarash Shayegani"}
+]
+dependencies = [
+    "gradio>=4.44.0",
+    "yfinance>=0.2.40",
+    "plotly>=5.22.0",
+    "pandas>=2.2.0",
+    "numpy>=1.26.0",
+    "pyyaml>=6.0.1",
+    "pydantic>=2.7.0",
+    "python-dateutil>=2.9.0",
+    "requests>=2.32.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

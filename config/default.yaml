@@ -1,0 +1,86 @@
+# Middle-East Tension Indicator (METI) - Default Configuration
+
+app:
+  title: "Middle-East Tension Indicator"
+  short_name: "METI"
+  version: "1.0.0"
+  description: "Real-time market-based geopolitical tension gauge for the Middle East"
+  refresh_seconds: 180          # how often the dashboard suggests refresh
+  cache_ttl_seconds: 120        # data cache lifetime
+
+# Assets used in the tension calculation
+# weight: relative importance (should sum ~1.0)
+assets:
+  CL=F:
+    name: "Crude Oil"
+    weight: 0.38
+    emoji: "🛢️"
+    color: "#FF6B6B"
+    description: "Middle-East supply disruptions directly impact global oil prices"
+  GC=F:
+    name: "Gold"
+    weight: 0.28
+    emoji: "🥇"
+    color: "#FFD166"
+    description: "Traditional safe-haven asset during geopolitical uncertainty"
+  BTC-USD:
+    name: "Bitcoin"
+    weight: 0.24
+    emoji: "₿"
+    color: "#F7931A"
+    description: "Digital risk-off indicator, often sold for liquidity in crises"
+  LMT:
+    name: "Lockheed Martin"
+    weight: 0.10
+    emoji: "✈️"
+    color: "#06D6A0"
+    description: "Defense stock proxy for anticipated military spending"
+
+# Multi-timeframe weights for percent-change calculation
+timeframes:
+  1h:
+    label: "1 Hour"
+    weight: 0.10
+    period: "1d"
+    interval: "5m"
+    lookback_bars: 12
+  4h:
+    label: "4 Hours"
+    weight: 0.30
+    period: "5d"
+    interval: "15m"
+    lookback_bars: 16
+  1d:
+    label: "1 Day"
+    weight: 0.40
+    period: "5d"
+    interval: "1h"
+    lookback_bars: 24
+  1wk:
+    label: "1 Week"
+    weight: 0.20
+    period: "1mo"
+    interval: "1d"
+    lookback_bars: 5
+
+# Normalization of raw weighted change into 0-100 tension score
+normalization:
+  baseline: 20          # neutral reading when raw ≈ 0
+  max_positive: 5.0     # raw value that maps to ~100
+  max_negative: -5.0    # raw value used for log decay below baseline
+  clamp_min: 0
+  clamp_max: 100
+
+# Visual thresholds for the gauge
+gauge:
+  steps:
+    - {range: [0, 25], color: "rgba(16, 185, 129, 0.75)", label: "Calm"}
+    - {range: [25, 50], color: "rgba(250, 204, 21, 0.75)", label: "Elevated"}
+    - {range: [50, 75], color: "rgba(249, 115, 22, 0.75)", label: "High"}
+    - {range: [75, 100], color: "rgba(239, 68, 68, 0.75)", label: "Critical"}
+
+# History settings
+history:
+  db_path: "data/meti_history.db"
+  snapshot_interval_minutes: 15
+  keep_days: 90

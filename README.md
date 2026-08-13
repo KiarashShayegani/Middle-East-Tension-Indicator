@@ -1,66 +1,121 @@
-# 🎛️ Middle-East Tension Indicator
+---
+title: Middle-East Tension Indicator
+emoji: ⚡
+colorFrom: blue
+colorTo: red
+sdk: gradio
+sdk_version: 4.44.0
+app_file: app.py
+pinned: false
+license: mit
+short_description: Real-time market-based geopolitical tension gauge for the Middle East
+---
 
-**A self-driven, real-time dashboard tracking geopolitical tension signals in the Middle-East. Born from personal experience during the June 2025 Iran-Israel conflict.**
+# ⚡ Middle-East Tension Indicator (METI)
 
-[![GitHub Release](https://img.shields.io/github/v/release/KiarashShayegani/Middle-East-Tension-Indicator)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator/releases/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Project Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen)](https://github.com/KiarashShayegani/Middle-East-Tension-Indicator)
+**A real-time, transparent dashboard that turns financial market movements into a clear Middle-East tension score (0–100).**
 
-## 📖 Background Story
-> *"On June 13th, 2025, at 3:20 AM in Tehran, I was awake, recording a video for a university project. The first distant booms seemed like thunder—a common thought before reality shattered the quiet. Within moments, it was undeniable: the sound was not the sky, but the start of a war. I was in complete shock, with no warning.
-Weeks later, analyzing the financial markets, I discovered a chilling pattern: key assets like Oil, Gold, and Bitcoin had begun their dramatic moves hours before the public news broke. The early-warning signal was there, hidden in plain sight within the data.
-This project was built to decode that signal. It aims to give everyone—not just analysts with Bloomberg terminals—access to that same early-warning capability, transforming complex market movements into a clear, understandable indicator of rising tension in the Middle East."*
-
-## 📊 What This Is
-- A **public, real-time dashboard** showing Middle-East tension levels (0-100)
-- **Early warning system** using market reactions as leading indicators
-- **Citizen-driven project** – built by someone who experienced the tension firsthand
-- **Educational tool** for understanding geopolitical risk signals
-
-> **System Architecture Overview**
-> 
-![Project Preview Diagram](assets/diagram.png)
+Born from personal experience during the June 2025 Iran-Israel conflict.
 
 ---
 
-## 📈 How It Works
-The index analyzes four financial assets that react to Middle-East tensions:
+## What it does
 
-| Asset | Weight | Why It Matters |
-|-------|--------|----------------|
-| **Crude Oil (CL=F)** | 38% | Middle-East supply disruptions directly impact global oil prices |
-| **Gold (GC=F)** | 28% | Traditional safe-haven asset during geopolitical uncertainty |
-| **Bitcoin (BTC-USD)** | 24% | Digital "risk-off" indicator, often sold for liquidity in crises |
-| **Lockheed Martin (LMT)** | 10% | Defense stock proxy for anticipated military spending(changable option) |
+METI watches four assets that historically react to Middle-East geopolitical stress:
 
-**Formula:** `Index = Σ(Asset_Weight × Price_Change)` → Normalized to 0-100 scale
+| Asset              | Weight | Why it matters                                      |
+|--------------------|--------|-----------------------------------------------------|
+| Crude Oil (CL=F)   | 38%    | Direct supply-disruption risk                       |
+| Gold (GC=F)        | 28%    | Classic safe-haven                                  |
+| Bitcoin (BTC-USD)  | 24%    | Modern risk-off / liquidity signal                  |
+| Lockheed Martin    | 10%    | Defense spending proxy                              |
 
-## 🖼️ Dashboard UI Preview (v0.2)
-![v0.2 Dashboard Screenshot](assets/screenshots/v0.2_screenshot_1.png)
-![v0.2 Dashboard Screenshot](assets/screenshots/v0.2_screenshot_2.png)
+It combines multi-timeframe price changes into a single **Tension Index** and shows:
 
-## 🗺️ Version Journey
-| Version | Status | Focus | Key Features |
-|---------|--------|-------|-------------|
-| [v0.1](/versions/v0.1) | ✅ Released | Proof of Concept | Basic 4-asset monitoring, simple gauge |
-| [v0.2](/versions/v0.2) | ✅ Released | UI Enhancement | Professional dashboard, multi-timeframe analysis |
-| [v1.0](/ROADMAP.md#v10---deployment-release) | 🚧 Planned | Public Deployment | Streamlit Cloud hosting, automated reports |
-| [v2.0](/ROADMAP.md#v20---advanced-signals) | 📋 Planned | Signal Expansion | Military tracking, social media sentiment, news aggregation |
+- Current score + regime (Calm / Elevated / High / Critical)
+- Per-asset contribution
+- Recent history
 
-## 📂 Repository Structure
+This is **not** a prediction engine. It is a market-implied stress gauge meant as an early-warning *complement* to news.
+
+---
+
+## Quick start (local)
+
+```bash
+# clone / download the project
+cd meti
+
+# create environment (recommended)
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+
+# install
+pip install -r requirements.txt
+
+# run
+python app.py
 ```
-Middle-East-Tension-Index/
-├── versions/           # All versioned code (v0.1, v0.2, etc.)
-├── docs/               # Documentation & methodology
-├── assets/             # Screenshots & diagrams
-├── ROADMAP.md          # Future development plans
-├── CHANGELOG.md        # Version history
+
+Then open http://localhost:7860
+
+---
+
+## Deploy on Hugging Face Spaces (free)
+
+1. Create a new Space → choose **Gradio** SDK
+2. Upload (or git push) the contents of this repository
+3. Make sure `app.py` and `requirements.txt` are at the root
+4. The Space will build and run automatically
+
+The same code works locally and on Spaces.
+
+---
+
+## Project structure
+
+```
+meti/
+├── app.py                  # Gradio entrypoint
+├── requirements.txt
+├── config/default.yaml     # Assets, weights, thresholds
+├── src/meti/
+│   ├── config.py
+│   ├── data/               # providers, cache, history
+│   ├── indicators/         # tension calculation
+│   └── viz/                # Plotly charts
+├── data/                   # SQLite history (auto-created)
+└── README.md
 ```
 
-## 🤝 Contributing & Feedback
-This is a public project. Have ideas for improvement? Found a bug? Want to add new data sources?
-- **Open an Issue** for bugs or feature requests
-- **Start a Discussion** for ideas and suggestions
+---
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Methodology (short)
+
+1. For each asset, compute percent change over 1h / 4h / 1d / 1wk windows
+2. Weight the timeframes (default: 10% / 30% / 40% / 20%)
+3. Weight the assets (Oil 38%, Gold 28%, BTC 24%, LMT 10%)
+4. Normalize the raw sum onto a 0–100 scale (baseline ≈ 20 when markets are quiet)
+
+All weights and parameters live in `config/default.yaml` and can be changed without touching code.
+
+---
+
+## Roadmap
+
+- [x] Core indicator + Gradio dashboard
+- [x] Local history (SQLite)
+- [x] HF Spaces ready
+- [ ] Richer historical event annotations
+- [ ] Optional news / social sentiment layer
+- [ ] Simple alert thresholds
+
+---
+
+## License
+
+MIT
+
+---
+
+*Built by someone who was awake at 3:20 AM in Tehran when the first strikes began.*

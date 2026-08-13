@@ -1,0 +1,9 @@
+gradio>=4.44.0
+yfinance>=0.2.40
+plotly>=5.22.0
+pandas>=2.2.0
+numpy>=1.26.0
+pyyaml>=6.0.1
+pydantic>=2.7.0
+python-dateutil>=2.9.0
+requests>=2.32.0
