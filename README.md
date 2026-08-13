@@ -1,16 +1,3 @@
----
-title: Middle-East Tension Indicator
-emoji: ⚡
-colorFrom: blue
-colorTo: red
-sdk: gradio
-sdk_version: 6.24.0
-app_file: app.py
-pinned: false
-license: mit
-short_description: Real-time market-based geopolitical tension gauge for the Middle East
----
-
 # ⚡ Middle-East Tension Indicator (METI)
 
 **A real-time, transparent dashboard that turns financial market movements into a clear Middle-East tension score (0–100).**
