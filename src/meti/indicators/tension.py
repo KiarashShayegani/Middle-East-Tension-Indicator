@@ -46,13 +46,19 @@ def normalize(
 
 
 def calculate_raw_index(asset_data: dict[str, Any], settings: Settings | None = None) -> float:
-    """Weighted sum of each asset's multi-timeframe weighted change."""
+    """Weighted sum of each asset's multi-timeframe weighted change.
+
+    Each asset has a direction multiplier:
+      +1 → price increase raises tension
+      -1 → price increase lowers tension (e.g. Bitcoin)
+    """
     settings = settings or get_settings()
     total = 0.0
     for ticker, info in asset_data.items():
-        weight = settings.assets[ticker].weight if ticker in settings.assets else 0.0
-        direction = settings.assets[ticker].direction
-        total += info["weighted_change"] * weight * direction
+        if ticker not in settings.assets:
+            continue
+        asset = settings.assets[ticker]
+        total += info["weighted_change"] * asset.weight * asset.direction
     return float(total)
 
 
@@ -90,15 +96,20 @@ def calculate_tension_index(
         clamp_max=norm_cfg.clamp_max,
     )
 
-    # Contribution of each asset to the raw index
+    # Contribution of each asset to the raw index (includes direction)
     contributions = {}
     for ticker, info in asset_data.items():
+        direction = 1
+        if ticker in settings.assets:
+            direction = settings.assets[ticker].direction
+        signed_contribution = info["weighted_change"] * info["weight"] * direction
         contributions[ticker] = {
             "name": info["name"],
             "emoji": info["emoji"],
             "weight": info["weight"],
+            "direction": direction,
             "weighted_change": info["weighted_change"],
-            "contribution": info["weighted_change"] * info["weight"] * direction,
+            "contribution": signed_contribution,
             "current_price": info["current_price"],
             "changes": info["changes"],
             "color": info["color"],

@@ -14,7 +14,7 @@ from pydantic import BaseModel, Field
 class AssetConfig(BaseModel):
     name: str
     weight: float
-    direction: int = 1
+    direction: int = 1  # +1 = price up raises tension, -1 = price up lowers tension
     emoji: str = ""
     color: str = "#3b82f6"
     description: str = ""
