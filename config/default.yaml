@@ -14,24 +14,28 @@ assets:
   CL=F:
     name: "Crude Oil"
     weight: 0.38
+    direction: 1
     emoji: "🛢️"
     color: "#FF6B6B"
     description: "Middle-East supply disruptions directly impact global oil prices"
   GC=F:
     name: "Gold"
     weight: 0.28
+    direction: 1
     emoji: "🥇"
     color: "#FFD166"
     description: "Traditional safe-haven asset during geopolitical uncertainty"
   BTC-USD:
     name: "Bitcoin"
     weight: 0.24
+    direction: -1
     emoji: "₿"
     color: "#F7931A"
     description: "Digital risk-off indicator, often sold for liquidity in crises"
   LMT:
     name: "Lockheed Martin"
     weight: 0.10
+    direction: 1
     emoji: "✈️"
     color: "#06D6A0"
     description: "Defense stock proxy for anticipated military spending"

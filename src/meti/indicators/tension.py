@@ -51,7 +51,8 @@ def calculate_raw_index(asset_data: dict[str, Any], settings: Settings | None = 
     total = 0.0
     for ticker, info in asset_data.items():
         weight = settings.assets[ticker].weight if ticker in settings.assets else 0.0
-        total += info["weighted_change"] * weight
+        direction = settings.assets[ticker].direction
+        total += info["weighted_change"] * weight * direction
     return float(total)
 
 
@@ -97,7 +98,7 @@ def calculate_tension_index(
             "emoji": info["emoji"],
             "weight": info["weight"],
             "weighted_change": info["weighted_change"],
-            "contribution": info["weighted_change"] * info["weight"],
+            "contribution": info["weighted_change"] * info["weight"] * direction,
             "current_price": info["current_price"],
             "changes": info["changes"],
             "color": info["color"],
